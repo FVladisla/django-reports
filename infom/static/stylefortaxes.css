@@ -1,0 +1,117 @@
+/* Стилизация заголовка отчета */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+h1 {
+    text-align: center;
+}
+
+/* Стили для поисковой формы */
+.search-box {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap; /* Разрешаем перенос строк */
+}
+
+.search-box input[type="text"],
+.search-box select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px; /* Отступ между элементами */
+    flex: 1;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
+
+/* Стилизация заголовка отчета */
+.report-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333;
+    padding-bottom: 10px;
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Стилизация контента отчета */
+.report-content {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Общий контейнер отчета */
+.report-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Стилизация кнопки "Назад" */
+.back-button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.back-button:hover {
+    background-color: #555;
+}
+
+/* Стилизация навигационного меню */
+nav ul {
+    padding: 10;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 45px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+nav {
+    background-color: #f0f0f0;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Стилизация ссылок в навигационном меню */
+nav ul li a {
+    color: #333;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #ddd;
+}

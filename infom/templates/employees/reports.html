@@ -1,0 +1,107 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Отчеты</title>
+    <link rel="stylesheet" href="{% static 'stylefortaxes.css' %}">
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        table {
+            margin-right: 20px;
+        }
+        .warning {
+            background-color: #ffe6e6;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="{% url 'infom:employee_list' %}">Поиск сотрудников</a></li>
+        <li><a href="{% url 'infom:reports' %}">Просмотр отчетов</a></li>
+    </ul>
+</nav>
+<h1>Отчеты</h1>
+<form class="search-box" action="{{ request.path }}" method="GET">
+    <select name="search_criteria">
+        <option value="title"{% if request.GET.search_criteria == 'title' %} selected {% endif %}>Название</option>
+        <option value="period"{% if request.GET.search_criteria == 'period' %} selected {% endif %}>Период</option>
+        <option value="report_content"{% if request.GET.search_criteria == 'report_content' %} selected {% endif %}>Содержание отчета</option>
+        <option value="revenue_volume"{% if request.GET.search_criteria == 'revenue_volume' %} selected {% endif %}>Объем дохода</option>
+        <option value="shipment_volume"{% if request.GET.search_criteria == 'shipment_volume' %} selected {% endif %}>Объем отгрузки</option>
+        <option value="tariff_id"{% if request.GET.search_criteria == 'tariff_id' %} selected {% endif %}>Идентификатор тарифа</option>
+        <option value="time_at_work"{% if request.GET.search_criteria == 'time_at_work' %} selected {% endif %}>Время работы</option>
+        <option value="action_id"{% if request.GET.search_criteria == 'action_id' %} selected {% endif %}>Идентификатор действия</option>
+        <option value="income_tax_rate"{% if request.GET.search_criteria == 'income_tax_rate' %} selected {% endif %}>Ставка налога на доходы</option>
+        <option value="contribution_tax_rate"{% if request.GET.search_criteria == 'contribution_tax_rate' %} selected {% endif %}>Ставка налога на взносы</option>
+        <option value="employee"{% if request.GET.search_criteria == 'employee' %} selected {% endif %}>Сотрудник</option>
+    </select>
+    <input type="text" name="search_query" placeholder="Введите запрос">
+    <button type="submit">Поиск</button>
+</form>
+{% if warning_message %}
+<div class="warning">
+    <p>{{ warning_message }}</p>
+</div>
+{% else %}
+<div class="container">
+    {% for report in reports %}
+    <table>
+        <thead>
+            <tr>
+                <th colspan="2">{{ report.title }}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Период</td>
+                <td>{{ report.period }}</td>
+            </tr>
+            <tr>
+                <td>Содержание отчета</td>
+                <td>{{ report.report_content }}</td>
+            </tr>
+            <tr>
+                <td>Сотрудник</td>
+                <td>{{ report.employee }}</td>
+            </tr>
+            <tr>
+                <td>Объем выручки</td>
+                <td>{{ report.revenue_volume }}</td>
+            </tr>
+            <tr>
+                <td>Объем отгрузки</td>
+                <td>{{ report.shipment_volume }}</td>
+            </tr>
+            <tr>
+                <td>Тарифный идентификатор</td>
+                <td>{{ report.tariff_id }}</td>
+            </tr>
+            <tr>
+                <td>Время на работе</td>
+                <td>{{ report.time_at_work }}</td>
+            </tr>
+            <tr>
+                <td>Идентификатор действия</td>
+                <td>{{ report.action_id }}</td>
+            </tr>
+            <tr>
+                <td>Ставка налога на доходы</td>
+                <td>{{ report.income_tax_rate }}</td>
+            </tr>
+            <tr>
+                <td>Ставка налога на взносы</td>
+                <td>{{ report.contribution_tax_rate }}</td>
+            </tr>
+        </tbody>
+    </table>
+    {% endfor %}
+</div>
+{% endif %}
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список сотрудников</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body> 
+    <nav>
+        <ul>
+            <li><a href="{% url 'infom:employee_list' %}">Поиск сотрудников</a></li>
+            <li><a href="{% url 'infom:reports' %}">Просмотр отчетов</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1 class="heading">Список сотрудников</h1>
+
+        <!-- Поисковая форма -->
+        <form class="search-box" action="{{ request.path }}" method="GET">
+            <input type="text" name="search_query" placeholder="Введите критерий поиска" value="{{ request.GET.search_query }}">
+            <select name="search_criteria">
+                <option value="full_name" {% if request.GET.search_criteria == 'full_name' %} selected {% endif %}>Имя</option>
+                <option value="position" {% if request.GET.search_criteria == 'position' %} selected {% endif %}>Должность</option>
+                <option value="email" {% if request.GET.search_criteria == 'email' %} selected {% endif %}>Email</option>
+                <option value="phone" {% if request.GET.search_criteria == 'phone' %} selected {% endif %}>Телефон</option>
+            </select>
+            <button type="submit">Найти</button>
+        </form>
+        {% if warning_message %}
+    <div class="warning">
+        <p>{{ warning_message }}</p>
+    </div>
+    {% else %}
+        <!-- Таблица сотрудников -->
+        <table class="employee-table">
+            <thead>
+                <tr>
+                    <th>ФИО</th>
+                    <th>Должность</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee.full_name }}</td>
+                    <td>{{ employee.position }}</td>
+                    <td>{{ employee.email }}</td>
+                    <td>{{ employee.phone|default_if_none:'' }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+</body>
+</html>

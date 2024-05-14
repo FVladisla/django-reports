@@ -1,0 +1,117 @@
+/* Общие стили */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fafafa;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Стили для таблицы */
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+}
+
+.employee-table th,
+.employee-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.employee-table th {
+    background-color: #f2f2f2;
+    color: #333;
+}
+
+.employee-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.employee-table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Стили для поисковой формы */
+.search-box {
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.search-box input[type="text"],
+.search-box select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.search-box button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.search-box button:hover {
+    background-color: #0056b3;
+}
+
+/* Стили для активной вкладки */
+.tablinks.active {
+    background-color: #ccc; /* Цвет фона активной вкладки */
+    color: #333; /* Цвет текста активной вкладки */
+    border-bottom: 2px solid #333; /* Подчеркивание для активной вкладки */
+}
+
+nav ul {
+    padding: 10;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 45px; /* Регулируйте расстояние между элементами */
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Убирает правый отступ у последнего элемента */
+}
+
+nav {
+    background-color: #f0f0f0; /* Цвет фона */
+    padding: 10px 0; /* Внутренние отступы сверху и снизу */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Стилизация ссылок */
+nav ul li a {
+    color: #333; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 5px 10px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругление углов */
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}
