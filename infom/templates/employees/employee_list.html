@@ -13,6 +13,7 @@
         <ul>
             <li><a href="{% url 'infom:employee_list' %}">Поиск сотрудников</a></li>
             <li><a href="{% url 'infom:reports' %}">Просмотр отчетов</a></li>
+            <li><a href="{% url 'infom:enter_data' %}">Внести данные</a></li>
         </ul>
     </nav>
     <div class="container">
@@ -29,11 +30,12 @@
             </select>
             <button type="submit">Найти</button>
         </form>
+        
         {% if warning_message %}
-    <div class="warning">
-        <p>{{ warning_message }}</p>
-    </div>
-    {% else %}
+        <div class="warning">
+            <p>{{ warning_message }}</p>
+        </div>
+        {% else %}
         <!-- Таблица сотрудников -->
         <table class="employee-table">
             <thead>
@@ -55,7 +57,7 @@
                 {% endfor %}
             </tbody>
         </table>
+        {% endif %}
     </div>
-    {% endif %}
 </body>
 </html>

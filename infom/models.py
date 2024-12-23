@@ -17,6 +17,8 @@ class WorkTimeRecord(models.Model):
     end_time = models.DateTimeField()
     date = models.DateField()
     time_at_work = models.DurationField()
+    def __str__(self) -> str:
+        return f"{self.employee} {self.date}"
 
     class Meta:
         unique_together = ('employee', 'start_time', 'end_time')
@@ -41,12 +43,15 @@ class ShipmentRevenue(models.Model):
     revenue_volume = models.DecimalField(max_digits=10, decimal_places=2)
     shipment_volume = models.DecimalField(max_digits=10, decimal_places=2)
     date = models.DateField()
+    def __str__(self) -> str:
+        return f"{self.employee} {self.date}"
 
     class Meta:
         unique_together = ('employee', 'action_id', 'date')
 
 class Tariff(models.Model):
     tariff_id = models.AutoField(primary_key=True)
+    tariff_name = models.CharField(max_length=150)
     tariff_value = models.DecimalField(max_digits=10, decimal_places=2)
     action_id = models.IntegerField(blank=True, null=True)
 

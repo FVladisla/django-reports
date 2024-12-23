@@ -1,0 +1,86 @@
+/* styles.css */
+
+/* Стили для навигационного меню */
+.tablinks.active {
+    background-color: #ccc; /* Цвет фона активной вкладки */
+    color: #333; /* Цвет текста активной вкладки */
+    border-bottom: 2px solid #333; /* Подчеркивание для активной вкладки */
+}
+
+nav ul {
+    padding: 10;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 45px; /* Регулируйте расстояние между элементами */
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Убирает правый отступ у последнего элемента */
+}
+
+nav {
+    background-color: #f0f0f0; /* Цвет фона */
+    padding: 10px 0; /* Внутренние отступы сверху и снизу */
+    text-align: center; /* Выравнивание по центру */
+}
+
+/* Стилизация ссылок */
+nav ul li a {
+    color: #333; /* Цвет текста ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 5px 10px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругление углов */
+}
+
+nav ul li a:hover {
+    background-color: #ddd; /* Цвет фона при наведении */
+}
+
+/* Стили для контейнера */
+.container {
+    max-width: 800px; /* Максимальная ширина контейнера */
+    margin: 0 auto; /* Центрируем контейнер */
+    padding: 2em; /* Отступы внутри контейнера */
+    background-color: #f9f9f9; /* Светло-серый фон контейнера */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень для контейнера */
+    border-radius: 8px; /* Скругленные углы */
+}
+
+body{
+    font-family: Arial, sans-serif;
+}
+/* Стили для заголовков */
+h1 {
+    color: #333; /* Темный цвет заголовков */
+    text-align: center; /* Выравнивание заголовков по центру */
+}
+
+/* Стили для формы */
+form {
+    display: flex; /* Делаем форму флексбоксом */
+    flex-direction: column; /* Располагаем элементы формы по вертикали */
+    gap: 1em; /* Расстояние между элементами формы */
+}
+
+label {
+    font-weight: bold; /* Жирный шрифт для меток */
+}
+
+select, button {
+    padding: 10px; /* Отступы внутри селекта и кнопки */
+    border: 1px solid #ccc; /* Светло-серая граница */
+    border-radius: 4px; /* Скругленные углы */
+}
+
+button {
+    background-color: #4CAF50; /* Темно-зеленый фон для кнопки */
+    color: white; /* Белый цвет текста кнопки */
+    cursor: pointer; /* Курсор в виде руки при наведении */
+    transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+button:hover {
+    background-color: #45a049; /* Более светлый зеленый при наведении */
+}

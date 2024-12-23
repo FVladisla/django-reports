@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Employee Data</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'infom:employee_list' %}">Поиск сотрудников</a></li>
+            <li><a href="{% url 'infom:reports' %}">Просмотр отчетов</a></li>
+            <li><a href="{% url 'infom:enter_data' %}">Внести данные</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Введите данные сотрудника</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Data</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="{% url 'infom:employee_list' %}">Поиск сотрудников</a></li>
+            <li><a href="{% url 'infom:reports' %}">Просмотр отчетов</a></li>
+            <li><a href="{% url 'infom:enter_data' %}">Внести данные</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Ввод данных</h1>
+
+        <form method="get" action="{% url 'infom:enter_data' %}">
+            <label for="model_select">Выберите что хотите внести:</label>
+            <select name="model_name" id="model_select">
+                <option value="Employee">Сотрудник</option>
+                <option value="WorkTimeRecord">Время работы</option>
+                <option value="PayrollReport">Отчёт о ФОТ</option>
+                <option value="Tariff">Тариф</option>
+                <option value="TaxesReport">Налоговые отчёты</option>
+                <option value="ShipmentRevenue">Объёмы работ</option>
+            </select>
+            <button type="submit">Select</button>
+        </form>
+    </div>
+</body>
+</html>
